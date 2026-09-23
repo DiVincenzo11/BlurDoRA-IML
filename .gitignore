@@ -216,3 +216,11 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Research artifacts must not be published in this preliminary repository.
+*.pth
+*.pt
+*.ckpt
+data/
+results/
+logs/

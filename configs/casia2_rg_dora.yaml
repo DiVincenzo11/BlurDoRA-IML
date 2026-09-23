@@ -1,0 +1,30 @@
+# Key settings of the final CASIA2-only paper run.
+# This is a configuration summary, not a complete training launcher.
+training_dataset: CASIA2
+input_size: 512
+epochs: 100
+optimizer: AdamW
+lr: 3.0e-4
+weight_decay: 0.05
+warmup_epochs: 5
+seed: 42
+
+backbone: dinov3_vitl16
+dora_target: fused_qkv_every_block
+dora_rank: 128
+dora_alpha: 256
+
+residual_kernel_size: 5
+residual_stem_channels: [32, 64, 128, 256]
+residual_injection_blocks: [6, 12, 18, 24]
+projection_dims: [256, 487, 1024]
+projection_hidden_dim: 487
+injection_gamma_init: 0.0
+
+blur_kernels: [3, 7, 11, 15, 19, 23]
+blur_probability: 1.0
+blur_before_resize: true
+blur_mask: false
+
+edge_loss_weight: 20.0
+edge_mask_width: 7
