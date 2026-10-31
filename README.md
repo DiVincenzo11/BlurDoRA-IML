@@ -5,6 +5,26 @@ This preliminary release makes the paper's main architectural choices inspectabl
 It does not yet contain the full training or evaluation pipeline and cannot by itself
 reproduce the reported scores.
 
+## Residual-guided localization
+
+![Residual-guided DINOv3 localizer](docs/figures/architecture.png)
+
+The paper's method combines a residual guidance branch with gated injections
+after DINOv3 blocks 6, 12, 18, and 24, alongside DoRA adaptation of fused QKV
+projections. The figure shows the full method, including the localization head;
+this preliminary release contains the core modules listed below, not a runnable
+end-to-end model.
+
+## Localization under image blur
+
+![Paper qualitative localization example on clean and blurred CASIAv1 images](docs/figures/qualitative-blur23.png)
+
+An existing qualitative example from the paper under CASIA2-only training:
+clean input on the top row and Blur-23 on the bottom row. Columns show the input,
+ground-truth mask, DINOv3-IML, six-level blur LoRA-64, and the full method.
+Cyan contours indicate the mask boundary. These are paper results, not outputs
+newly generated from this preliminary code release.
+
 ## Current release
 
 - `models/residual_branch.py`: Bayar-constrained 5×5 residual filter and four
